@@ -6,7 +6,12 @@ const dbConnect = require("./config/mongo.js");
 //PUERTO
 const port = process.env.PORT || 3000;
 const app = express();
-app.use(cors);
+app.use(cors());
+app.use(express.json());
+
+//usando las rutas
+
+app.use("/api", require("./routers"));
 
 app.listen(port, () => {
   console.log("El servidor esta que corre en el servidor: " + port);
